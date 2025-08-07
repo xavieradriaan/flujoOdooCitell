@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo de Trabajo ERP</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .workflow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .entity {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 200px;
+            border: 3px solid transparent;
+        }
+        
+        .entity:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .citell {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            border-color: #ff6b6b;
+        }
+        
+        .developer {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border-color: #4ecdc4;
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .odoo {
+            background: linear-gradient(135deg, #45b7d1, #96c93d);
+            color: white;
+            border-color: #45b7d1;
+        }
+        
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .entity h3 {
+            margin: 10px 0;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .entity p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .arrow {
+            font-size: 2em;
+            color: #667eea;
+            margin: 0 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .process-steps {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .step:hover {
+            transform: translateX(10px);
+        }
+        
+        .step-number {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .step p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .workflow {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .entity {
+                min-width: 250px;
+            }
+        }
+        
+        .local-testing {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .local-testing h3 {
+            color: #d63031;
+            margin-bottom: 15px;
+        }
+        
+        .local-testing p {
+            color: #2d3436;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Flujo de Trabajo ERP - Sistema Odoo</h1>
+        
+        <div class="workflow">
+            <div class="entity citell">
+                <span class="icon">🏢</span>
+                <h3>CITELL</h3>
+                <p><strong>Cliente/Empresa</strong></p>
+                <p>• Define requerimientos</p>
+                <p>• Especifica necesidades del ERP</p>
+                <p>• Recibe producto final</p>
+            </div>
+            
+            <div class="arrow">⬅️➡️</div>
+            
+            <div class="entity developer">
+                <span class="icon">👨‍💻</span>
+                <h3>ADRIÁN</h3>
+                <p><strong>Desarrollador Intermediario</strong></p>
+                <p>• Analiza requerimientos</p>
+                <p>• Traduce necesidades técnicas</p>
+                <p>• Coordina implementación</p>
+                <p>• Valida y prueba solución</p>
+            </div>
+            
+            <div class="arrow">⬅️➡️</div>
+            
+            <div class="entity odoo">
+                <span class="icon">⚙️</span>
+                <h3>ODOO</h3>
+                <p><strong>Proveedor ERP</strong></p>
+                <p>• Recibe especificaciones</p>
+                <p>• Desarrolla soluciones</p>
+                <p>• Entrega implementación</p>
+            </div>
+        </div>
+        
+        <div class="process-steps">
+            <h2 style="text-align: center; color: #333; margin-bottom: 30px;">📋 Proceso Paso a Paso</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Recepción de Requerimientos</h4>
+                    <p>CITELL proporciona las necesidades y especificaciones del sistema ERP que necesitan implementar al desarrollador intermediario.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Análisis y Documentación</h4>
+                    <p>Desarrollador intermediario analiza los requerimientos, los documentas técnicamente y preparas las especificaciones para Odoo.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Comunicación con Odoo</h4>
+                    <p>Presentas las ideas de implementación a Odoo, discutes viabilidad y defines alcance del proyecto.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Desarrollo y Configuración</h4>
+                    <p>Odoo desarrolla/configura la solución según las especificaciones acordadas.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Recepción de Entregables</h4>
+                    <p>Desarrollador intermediario realiza la entrega de la implementación inicial de Odoo para revisión y pruebas locales.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Pruebas y Validación</h4>
+                    <p>Realizas pruebas exhaustivas en tu entorno local, validas funcionalidades y documentas resultados.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h4>Entrega Final a CITELL</h4>
+                    <p>Entregas la implementación completamente validada y probada a CITELL, lista para producción.</p>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</body>
+</html>
